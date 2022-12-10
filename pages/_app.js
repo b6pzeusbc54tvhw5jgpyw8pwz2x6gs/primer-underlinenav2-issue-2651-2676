@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import { BaseStyles, ThemeProvider, theme, SSRProvider } from '@primer/react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <BaseStyles>
+        <SSRProvider>
+          <Component {...pageProps} />
+        </SSRProvider>
+      </BaseStyles>
+    </ThemeProvider>
+  );
 }
-
-export default MyApp
